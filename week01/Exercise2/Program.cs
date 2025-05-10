@@ -8,17 +8,33 @@ class Program
         string percentage = Console.ReadLine();
         int p_grade = int.Parse(percentage);
         string message = "Your grade is : ";
+        char letter;
         if (p_grade >= 90){
-            Console.WriteLine($"{message } A");
+            letter = 'A';
         }else if(p_grade >= 80 && p_grade < 90){
-            Console.WriteLine($"{message} B");
+             letter = 'B';
         }else if(p_grade >= 70 && p_grade < 80){
-            Console.WriteLine($"{message} C");
+             letter = 'C';
         }else if(p_grade >= 60 && p_grade < 70){
-            Console.WriteLine($"{message} D");
+             letter = 'D';
         }else{
-            Console.WriteLine($"{message} F");
+             letter = 'F';
         }
-            
+        
+         int last_digit = p_grade % 10;
+         string sign = "";
+         if(last_digit >= 7 && (letter != 'A' || letter != 'F')){
+            sign = "+";
+         }
+         if(last_digit <= 3 && letter != 'F'){
+            sign = "-";
+         }
+
+        Console.WriteLine($"{message} {letter}{sign}");
+        if(p_grade >= 70){
+            Console.WriteLine("Congratulation you pass the course.");
+        }else{
+            Console.WriteLine("Sorry, you couldn't make it. But, try hard next time.");
+        }
     }
 }
