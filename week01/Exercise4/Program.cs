@@ -29,7 +29,7 @@ class Program
          sum += num;
         }
         Console.WriteLine($"The sum is: {sum}");
-        Console.WriteLine($"The average is: {sum/numbers.Count}");
+        Console.WriteLine($"The average is: {(float)sum/numbers.Count}");
         Console.WriteLine($"The largest is: {largest}");
         Console.WriteLine($"The smallest positive number is: {smallest}");
         Console.WriteLine($"The sorted list is: ");
