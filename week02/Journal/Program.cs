@@ -53,7 +53,7 @@ class Program
           else Console.WriteLine("Invalid filename");
         }
        else if(option == "6"){
-          Console.WriteLine("Enter the file name to save journal entry: ");
+          Console.Write("Enter the file name to save journal entry: ");
           string filename = Console.ReadLine();
           if(filename.Trim() != ""){
           journal.SaveToFile(filename);

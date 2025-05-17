@@ -10,6 +10,10 @@ public class Files {
         return _files;
     }
 
+    public Files(){
+        LoadAllFiles();
+    }
+
     public bool CreateFile(string filename_){
         string filename = filename_.Trim();
         if(!_files.Contains(filename)){
@@ -52,13 +56,24 @@ public class Files {
         return false;
    }
 
-   public bool DeleteFile(string filename_){
+   public bool DeleteFile(string filename_, string file_ = _filesList){
            filename_ = filename_.Trim();
            if(filename_ == "filesList.txt") return false;
            if(filename_.EndsWith(".txt") || filename_.EndsWith(".csv") || filename_.EndsWith(".json"))
             if(File.Exists(filename_)){
-                File.Delete(filename_);
+                    File.Delete(filename_);
+                   _files.Remove(filename_);
+                    using(StreamWriter writer = new StreamWriter(file_)){
+                        foreach(string filename in _files)
+                          writer.WriteLine(filename);   
+                  }
                 return true;
+            }else if(_files.Contains(filename_)){
+                    _files.Remove(filename_);
+                    using(StreamWriter writer = new StreamWriter(file_)){
+                        foreach(string filename in _files)
+                          writer.WriteLine(filename);   
+                  }
             }
         return false;
    }
