@@ -1,10 +1,15 @@
+/*
+  For creativity, I added another class name Files. It is meant to manage files creation, saving and deletion.
+  The menu has been ehanced to make more interactive and more involved. The Menu function definition is 
+  found in line 82 - 93. The file name could be in txt or csv.
+*/
+
 using System;
 using System.IO;
 
 class Program
 {
 
-   
     static void Main(string[] args)
     {
 
