@@ -25,15 +25,11 @@ class Program
          MultipleScripture multiple = new MultipleScripture(scripture.GetReference(), scripture.GetReference().GetStartVerse() + rdn);
 
           Random rad = new Random();
-         int r = rad.Next(1, 2);
+         int r = rad.Next(1, 3);
          if(r == 1){
                Console.WriteLine(scripture.GetDisplayText());
          string prompt = Console.ReadLine();
-         while(prompt != "quit"){
-            if(scripture.IsCompletelyHidden() == true){
-                Console.WriteLine(scripture.HideRandomWords());
-                break;
-            }
+         while(prompt != "quit" || scripture.IsCompletelyHidden() == true){
              Console.Clear();
             Console.WriteLine(scripture.HideRandomWords(4));
             prompt = Console.ReadLine();
@@ -42,11 +38,7 @@ class Program
 
                  Console.WriteLine(multiple.GetDisplayText());
          string prompt = Console.ReadLine();
-         while(prompt != "quit"){
-            if(multiple.IsCompletelyHidden() == true){
-                Console.WriteLine(multiple.HideRandomWords());
-                break;
-            }
+         while(prompt != "quit" || scripture.IsCompletelyHidden() == true){
              Console.Clear();
             Console.WriteLine(multiple.HideRandomWords(4));
             prompt = Console.ReadLine();
