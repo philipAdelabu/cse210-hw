@@ -1,21 +1,43 @@
-/*
-  Proverbs 3:5-6 Trust in the Lord with all thine heart and lean not unot thine 
-                  own understanding; in lal lthy ways acknowleadge him, and he shall direct thy 
-                  paths.
-*/
 
-public class Scripture {
-    private Reference _reference;
+
+public class MultipleScripture {
+
+   private Reference _reference;
+   private Scriptures _books;
+   private List<Scripture>  _scriptures;
+   private string _text;
     private List<Word> _words;
-    private int _wordCount;
-    private string _text; 
+       
+        public MultipleScripture(Reference reference, int endVerse){
 
-    public Scripture(Reference reference, string text){
-        _reference = reference;
-        _text = text;
-        Text txt = new Text(text);
-        _words = txt.GetWordList();
-        _wordCount = txt.GetWordCount();
+            _reference = new Reference(reference.GetBook(), reference.GetChapter(), reference.GetStartVerse(), endVerse);
+            _books = new Scriptures();
+            _scriptures = _books.GetSricptures();
+            _text = GetMultipleVerse(reference.GetBook(), reference.GetChapter(), reference.GetStartVerse(), endVerse);
+            Text txt = new Text(_text);
+           _words = txt.GetWordList();
+
+        }
+
+        public string GetMultipleVerse(string book, int chapter, int startVerse, int endVerse){
+         string text = "";
+         bool start = true;
+         int counter = startVerse;
+           foreach(Scripture scripture in _scriptures ){
+            if(counter > endVerse) break;
+              Reference reference = scripture.GetReference();
+              if(reference.GetBook() == book && reference.GetChapter() == chapter){
+              if(reference.GetStartVerse() == startVerse && start == true){
+                   
+                    text += scripture.GetText();
+                    start = false;
+              }else{
+                 text += scripture.GetText();
+                 counter += 1;
+              }
+              }
+          }
+          return text;
     }
 
     public string HideRandomWords(int numberToHide = 2){
@@ -89,8 +111,6 @@ public class Scripture {
         return _text;
     }
 
-  
 
 
- 
 }

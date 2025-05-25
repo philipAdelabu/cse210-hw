@@ -18,16 +18,42 @@ class Program
          Random rand = new Random();
          int rd = rand.Next(0, scriptures.Count -1);
          Scripture scripture = scriptures[rd];
-    
-        Console.WriteLine(scripture.GetDisplayText());
+
+         Random rnd = new Random();
+         int rdn = rnd.Next(2, 4);
+
+         MultipleScripture multiple = new MultipleScripture(scripture.GetReference(), scripture.GetReference().GetStartVerse() + rdn);
+
+          Random rad = new Random();
+         int r = rad.Next(1, 2);
+         if(r == 1){
+               Console.WriteLine(scripture.GetDisplayText());
          string prompt = Console.ReadLine();
-         while(prompt != "quit" || scripture.IsCompletelyHidden() != true){
-            Console.Clear();
+         while(prompt != "quit"){
+            if(scripture.IsCompletelyHidden() == true){
+                Console.WriteLine(scripture.HideRandomWords());
+                break;
+            }
+             Console.Clear();
             Console.WriteLine(scripture.HideRandomWords(4));
             prompt = Console.ReadLine();
-         }
-         if(scripture.IsCompletelyHidden() == true)
-             Console.WriteLine(scripture.HideRandomWords());
-        return;
+         } 
+            } else {
+
+                 Console.WriteLine(multiple.GetDisplayText());
+         string prompt = Console.ReadLine();
+         while(prompt != "quit"){
+            if(multiple.IsCompletelyHidden() == true){
+                Console.WriteLine(multiple.HideRandomWords());
+                break;
+            }
+             Console.Clear();
+            Console.WriteLine(multiple.HideRandomWords(4));
+            prompt = Console.ReadLine();
+         } 
+  
+            }
+    
+        
     }
 }

@@ -3,6 +3,7 @@ using System.IO;
 
 public class Scriptures {
    private List<Scripture> _scriptures = new List<Scripture>();
+   private Reference _reference;
 
     public Scriptures(){
      LoadAllScriptures();
@@ -13,7 +14,7 @@ public class Scriptures {
 
      public void LoadAllScriptures(){
       
-        using (StreamReader sr = new StreamReader("kjv.csv", encoding="utf-8"))
+        using (StreamReader sr = new StreamReader("kjv.csv"))
             {
                while (!sr.EndOfStream)
                {
