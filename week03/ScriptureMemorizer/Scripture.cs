@@ -43,23 +43,39 @@ public class Scripture {
         int visibleWords = VisibleWords();
         if(visibleWords == 0) return ;
         if(number > visibleWords) number = visibleWords;
-        Random random = new Random();
-       for(int i = 1; i <= number; i++){
-               int rand = random.Next(0, _words.Count - 1);
-                while(_words[rand].IsHidden() == true){
-                      rand = random.Next(0, _words.Count - 1);
-                }
-                 string hide = ChangeCharacters(_words[rand].GetText());
-                 _words[rand].SetHideText(hide);    
+
+        for (int i = 1; i <= number; i++)
+        {
+            int rand = NextIndex(_words);
+            string hide = ChangeCharacters(_words[rand].GetText());
+            _words[rand].SetHideText(hide);
          } 
        return;
     }
 
+    private int NextIndex(List<Word> words)
+    {
+         Random random = new Random();
+        int lastIndex = words.Count - 1;
+        List<int> unHiddenWors = new List<int>();
+        for (int i = 0; i <= lastIndex; i++)
+        {
+            if (words[i].IsHidden() == false)
+                unHiddenWors.Add(i);
+        }
+        if (unHiddenWors.Count == 0) return 0;
+        int rand = random.Next(0, unHiddenWors.Count - 1);
+        return unHiddenWors[rand]; 
+    }
 
-    private string ChangeCharacters(string wd){
+
+    private string ChangeCharacters(string wd)
+    {
         string characters = "";
-        for(int i = 0; i < wd.Length; i++){
-             characters += "_";
+        foreach(char c in wd)
+        {
+            if (c == ',' || c == '.') continue; 
+            characters += "_";
         }
         return characters;
     }
