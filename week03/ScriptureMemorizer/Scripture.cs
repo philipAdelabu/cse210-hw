@@ -74,7 +74,11 @@ public class Scripture {
         string characters = "";
         foreach(char c in wd)
         {
-            if (c == ',' || c == '.') continue; 
+            if (c == ',' || c == '.' ||  c == ':' || c == ';' || c == '!' || c == '?'){
+                 characters += c; 
+                 return characters;
+            }
+            else
             characters += "_";
         }
         return characters;
