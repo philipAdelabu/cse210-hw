@@ -1,3 +1,7 @@
+// Creativity is added for the random selection of prompt and question. Each question or prompt picked will not be 
+// selected again until all the non selected are all selected.
+
+
 using System;
 
 class Program
