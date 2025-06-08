@@ -17,8 +17,14 @@ public class ListingActivity : Activity {
     }
 
       public string GetRandomPrompt(){
+            if(_prompts.Count == 1){
+                SetPrompts();
+                return _prompts[0];
+            } 
             Random random = new Random();
-            string prompt =  _prompts[random.Next(0, _prompts.Count - 1)];
+            int index = random.Next(0, _prompts.Count - 1);
+            string prompt =  _prompts[index];
+            _prompts.RemoveAt(index);
             return prompt;
     }
 

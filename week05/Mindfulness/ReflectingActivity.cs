@@ -39,21 +39,33 @@ public class ReflectingActivity : Activity {
     }
 
         public string GetRandomPrompt(){
+            if(_prompts.Count == 1){
+                SetPrompts();
+                return _prompts[0];
+            } 
             Random random = new Random();
-            string prompt =  _prompts[random.Next(0, _prompts.Count - 1)];
+            int index = random.Next(0, _prompts.Count - 1);
+            string prompt =  _prompts[index];
+            _prompts.RemoveAt(index);
             return prompt;
     }
 
     public string GetRandomQuestion(){
-             Random random = new Random();
-            string question =  _questions[random.Next(0, _questions.Count - 1)];
+             if(_questions.Count == 1){
+                SetQuestions();
+                return _questions[0];
+            } 
+            Random random = new Random();
+            int index = random.Next(0, _questions.Count - 1);
+            string question =  _questions[index];
+            _questions.RemoveAt(index);
             return question;
     }
     public void DisplayPrompt(){
          Console.WriteLine(" --- "+GetRandomPrompt() + " --- ");
     }
     public void DisplayQuestion(){
-         Console.Write(" > " + GetRandomQuestion());
+         Console.Write(" > " + GetRandomQuestion() + " ");
     }
 
     public void DisplayArea(){
@@ -73,5 +85,6 @@ public class ReflectingActivity : Activity {
           DisplayQuestion();
           ShowSpinner(counter);
        }
+       Console.WriteLine();
     }
 }

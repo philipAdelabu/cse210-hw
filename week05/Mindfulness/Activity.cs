@@ -12,14 +12,14 @@ public class Activity {
      }
 
      public void DisplayStartingMessage(){
-        Console.WriteLine($"Welcome to {_name} Activity \n");
+        Console.WriteLine($"\nWelcome to {_name} Activity \n");
         Console.WriteLine(_description + "\n");
         Console.Write("How long,  in second,  do you like your session to last? ");
         _duration = int.Parse(Console.ReadLine());
      }
 
      public void DisplayEndingMessage(){
-        Console.WriteLine("Weldone !!");
+        Console.WriteLine("\nWeldone !!");
         ShowSpinner(5);
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name} Activity.");
         ShowSpinner(5);
