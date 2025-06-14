@@ -9,7 +9,7 @@ public class CheckListGoal : Goal {
           _bonus = bonus;
       }
 
-      public void RecordEvent(){}
+      public override void RecordEvent(){}
       public bool IsCommplete(){ return false; }
       public string GetDetailString(){ return ""; }
       public string GetStringRepresentation(){
