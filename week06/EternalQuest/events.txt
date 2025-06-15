@@ -1,0 +1,12 @@
+2025/06/15 12-53-26:SimpleGoal:Reading,I like to read to increase myself,60,False
+2025/06/15 13.03.19:SimpleGoal:Reading ,I like reading,50,False
+2025/06/15 13.04.59:CheckListGoal:Jumping,Just to do some exercises,50,100, 4, 0
+2025/06/15 13.05.33:SimpleGoal:Reading ,I like reading,50,True
+2025/06/15 13.05.41:CheckListGoal:Jumping,Just to do some exercises,50,100, 4, 1
+2025/06/15 13.05.54:CheckListGoal:Jumping,Just to do some exercises,50,100, 4, 2
+2025/06/15 13.06.46:EternalGoal:Bible study,Reading of the Bible every day,200
+2025/06/15 13.06.59:EternalGoal:Bible study,Reading of the Bible every day,200
+2025/06/15 13.07.12:CheckListGoal:Jumping,Just to do some exercises,50,100, 4, 3
+2025/06/15 13.07.19:CheckListGoal:Jumping,Just to do some exercises,50,100, 4, 4
+2025/06/15 13.07.35:EternalGoal:Bible study,Reading of the Bible every day,200
+2025/06/15 13.07.59:EternalGoal:Bible study,Reading of the Bible every day,200

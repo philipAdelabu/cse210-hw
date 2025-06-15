@@ -1,0 +1,4 @@
+750
+SimpleGoal:Reading ,I like reading,50,True
+CheckListGoal:Jumping,Just to do some exercises,50,100, 4, 4
+EternalGoal:Bible study,Reading of the Bible every day,200
